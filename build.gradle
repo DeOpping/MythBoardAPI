@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'me.mantice'
+version = "${versionAPIMajor}.${versionAPIMinor}.${versionAPIPatch}"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    // Spigot
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
+    }
+
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    compileOnly 'org.jetbrains:annotations:26.0.2'
+
+    // Spigot
+    compileOnly "org.spigotmc:spigot-api:$versionSpigot"
+}
+
+test {
+    useJUnitPlatform()
+}
