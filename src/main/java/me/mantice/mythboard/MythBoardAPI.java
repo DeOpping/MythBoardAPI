@@ -1,5 +1,6 @@
 package me.mantice.mythboard;
 
+import me.mantice.mythboard.addons.AddonManager;
 import me.mantice.mythboard.criteria.CriteriaManager;
 import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;
@@ -26,5 +27,11 @@ public interface MythBoardAPI {
      * @return {@link CriteriaManager}
      */
     @Nullable CriteriaManager getCriteriaManager();
+
+    /**
+     * Get MythBoard's implementation of the {@link AddonManager}
+     * @return {@link AddonManager}
+     */
+    @Nullable AddonManager getAddonManager();
 
 }
